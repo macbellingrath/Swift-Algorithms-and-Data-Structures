@@ -27,8 +27,8 @@ func linearSearch(key: Int) {
 
 func binarySearch(key: Int, imin: Int, imax: Int) {
     
-    var midIndex: Double = round(Double((imin + imax)/2))
-    var midNumber = numberlist[Int(midIndex)]
+    let midIndex: Double = round(Double((imin + imax)/2))
+    let midNumber = numberlist[Int(midIndex)]
     
     //reduce range
     if midNumber > key {
