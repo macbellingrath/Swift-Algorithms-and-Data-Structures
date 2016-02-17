@@ -1,7 +1,3 @@
-# Swift-Algorithms-and-Data-Structures
-Examples and experiments from the text.
+#Algorithms-and-Data-Structures in Swift
 
-## Learning Objectives
-- Understanding Algorithm Design 
-- Considering Algorithmic Complexity
-- Having Fun with Swift
+A collection of different Algorithm challenges, examples, and practices in Swift.
