@@ -14,16 +14,22 @@ var diagSum2 = matrix[0][2] + matrix[1][1] + matrix[2][0]
 */
 
 
-var n = Int(readLine() ?? "") ?? 0
+//var n = Int(readLine() ?? "") ?? 0
 var matr = [[Int]]()
 
 var diagSum1 = 0
 var diagSum2 = 0
 
+let m = "1 2 3 /n 4 5 6 /n 7 8 9"
 
-while let array = readLine()?.characters.split(" ").map(String.init).flatMap({ Int($0)}) {
+while let array = m.characters
+                    .split(" ")
+                    .map(String.init)
+                    .map({ Int($0)}) {
     matr.append(array)
 }
+
+var n = matr.count
 
 for r in 0..<n {
     
@@ -39,6 +45,7 @@ print(abs(diagSum1 - diagSum2))
 
 /*
 If lines not given already separated by Row
+*/
 
 var arr = readLine()?.characters.split(" ").map(String.init).flatMap({ Int($0)}) ?? [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
@@ -74,7 +81,4 @@ for r in 0..<n {
 
 print(abs(diagSum1 - diagSum2))
 
-
-
-*/
 
