@@ -28,7 +28,9 @@ func calculateSecondsToFillBottle(initial: Int = 2, timeToFill t: Double) -> Dou
     let a = lhs / 2
     let b = rhs / 2
     
-    return b
+    let seconds = log2(b)
+    
+    return seconds
     
 }
 
@@ -36,6 +38,6 @@ calculateSecondsToFillBottle(2, timeToFill: 30)
 
 //: Let me check my math
 
-let check = pow(2.0, 29.0) == calculateSecondsToFillBottle(2, timeToFill: 30)
+let check = log2(pow(2.0, 29.0)) == calculateSecondsToFillBottle(2, timeToFill: 30)
 
 //: Prints 536,870,912 
