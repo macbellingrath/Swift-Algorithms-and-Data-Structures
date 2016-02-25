@@ -15,6 +15,7 @@ O(2 * 10^n) aka exponential time
 */
 
 func fib(n: Int) -> Int {
+   
     if n == 0 || n == 1 { return n }
     
     return fib(n - 1) + fib(n - 2)
@@ -54,5 +55,6 @@ print(Int.max)
 
 
 
-fibIteritive(testNumber)
-fib(testNumber)
+
+
+

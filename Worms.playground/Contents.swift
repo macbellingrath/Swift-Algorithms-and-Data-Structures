@@ -1,6 +1,7 @@
 import UIKit
 //Mac Bellingrath for WeddingWire
 
+import XCTest
 //: # Worms
 //: ### With an empty bottle, placing one worm inside that multiplies at a rate of 2x / second . At 30 seconds, the bottle is full. With the same empty bottle, placing two worms inside at the same growth rate, how many seconds will it take to fill the bottle?
 //: To find the number of worms at the point that it is full, we model by  __f(t) = 2^t__ _where t is the number of seconds_ getting something like p(30) = 2^30
@@ -12,7 +13,6 @@ func calculateNumberOfWorms(initial: Int = 1, growthRatePerSecond rate: UInt = 2
 calculateNumberOfWorms(seconds: 30)
 
 //: Prints 1,073,741,824
-
 
 //: With 2 worms at t = 0, we'd have _instead_ __f(t) = 2(2^t)__. The bottle will still be full with 2^30 worms. To solve for t, we can set the two equations equal 2(2^t) = 2^30
 //: We'll divide both sides by 2, to get __2^t = 2^30 / 2__ then, we'll simplify -> 2^30 / 2^1 =  2^30 - 1 or 2^t = 2^29. We can divide both sides by 2 to get rid of the coefficient giving us t = 29 (29 seconds).
@@ -40,4 +40,20 @@ calculateSecondsToFillBottle(2, timeToFill: 30)
 
 let check = log2(pow(2.0, 29.0)) == calculateSecondsToFillBottle(2, timeToFill: 30)
 
-//: Prints 536,870,912 
+class WormTests: XCTest {
+    func testCalulateSecondsToFillBottleWithTwoWormsReturns29() {
+        
+        XCTAssertEqual(29, calculateSecondsToFillBottle(timeToFill: 30))
+    }
+}
+
+
+
+
+let t = WormTests()
+t.testCalulateSecondsToFillBottleWithTwoWormsReturns29()
+
+
+
+
+
