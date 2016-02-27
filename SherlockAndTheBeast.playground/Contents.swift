@@ -22,6 +22,48 @@ public func getLineToArray() -> [String] {
     let retVal = currentLine.componentsSeparatedByCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
     return retVal.filter { Int($0) != nil }
 }
+public class RangeGenerator: GeneratorType {
+    let start: Int
+    let end: Int
+    let step: Int
+    let clockWise: Bool
+    
+    var stepNum = 0
+    
+    public init(start: Int, end: Int, step: Int) {
+        self.start = start
+        self.end = end
+        self.step = step
+        clockWise = step > 0
+    }
+    
+    public func next() -> Int? {
+        if clockWise {
+            guard start + stepNum * step < end else { return nil }
+            return start + step * stepNum++
+        } else {
+            guard start + stepNum * step > end else { return nil }
+            return start + step * stepNum++
+        }
+    }
+}
+
+
+struct SRange: SequenceType {
+    var start = 0
+    var end = 0
+    var step = 0
+    
+    init(start: Int, end: Int, step: Int) {
+        self.start = start
+        self.end = end
+        self.step = step
+    }
+    func generate() -> RangeGenerator {
+        return RangeGenerator(start: start, end: end, step: step)
+    }
+}
+
 
 //0, 5, 10, 15
 //3, 6, 9, 12
@@ -93,6 +135,7 @@ public class RangeGenerator: GeneratorType {
         }
     }
 }
+
 
 struct SRange: SequenceType {
     var start = 0
