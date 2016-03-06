@@ -44,10 +44,10 @@ struct Tree {
     var currentSeason: Season
     
     mutating func heightAfterGrowthCycles(n: Int) -> Void {
+      
+        guard heightInMeters >= 1 else { return }
     
-        var height = heightInMeters
-    
-        for i in 0..<n {
+        for _ in 0..<n {
            
             switch currentSeason {
             
@@ -77,7 +77,7 @@ struct Tree {
 let t = Int( readLine() ?? "" ) ?? 3
 
 for _ in 0..<t {
-    var tree = Tree(heightInMeters: 1, currentSeason: .Spring)
+    var tree = Tree(heightInMeters: -19, currentSeason: .Spring)
     
     tree.heightAfterGrowthCycles(Int(readLine() ?? "") ?? 0)
     
@@ -90,4 +90,10 @@ let expectedValues = [1, 2, 7]
 
 
 
+let x = 19
+0...20 ~= x
 
+switch x {
+case 0...20 ~= x: print("hi")
+default: break
+}
